@@ -4,7 +4,6 @@
   "description": "Shop SQL Program",
   "main": "index.js",
   "scripts": {
-    "start": "concurrently \"npx vite client\" \"nodemon server/server.js\"",
     "start1": "nodemon server/server.js\""
   },
   "author": "",
