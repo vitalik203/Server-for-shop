@@ -4,7 +4,7 @@
   "description": "Shop SQL Program",
   "main": "index.js",
   "scripts": {
-    "start1": "nodemon server/server.js\""
+    "start1": "node server.js\""
   },
   "author": "",
   "license": "ISC",
