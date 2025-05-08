@@ -12,19 +12,69 @@ const pool = new Pool({
   ssl: { rejectUnauthorized: false }
 });
 
+let test
+
 const app = express();
 app.use(express.json()); // обов’язково для POST JSON
 app.use(cors());
 
-app.get('/data', async (req, res) => {
+app.get('/bacalia', async (req, res) => {
   try {
-    const result = await pool.query('SELECT * FROM public.bacalia ORDER BY name');
+    const result = await pool.query(
+      'SELECT * FROM public.bacalia ORDER BY name',
+      [`%${search}%`]
+    );
+    
     res.json(result.rows);
   } catch (err) {
     console.error(err);
     res.status(500).send('Internal Server Error');
   }
 });
+
+app.get('/milk', async (req, res) => {
+  try {
+    const result = await pool.query(
+      'SELECT * FROM public.milk ORDER BY name',
+      [`%${search}%`]
+    );
+    
+    res.json(result.rows);
+  } catch (err) {
+    console.error(err);
+    res.status(500).send('Internal Server Error');
+  }
+});
+
+app.get('/meat', async (req, res) => {
+  try {
+    const result = await pool.query(
+      'SELECT * FROM public.meat ORDER BY name',
+      [`%${search}%`]
+    );
+    
+    res.json(result.rows);
+  } catch (err) {
+    console.error(err);
+    res.status(500).send('Internal Server Error');
+  }
+});
+
+
+app.get('/bread', async (req, res) => {
+  try {
+    const result = await pool.query(
+      'SELECT * FROM public.bread ORDER BY name',
+      [`%${search}%`]
+    );
+    
+    res.json(result.rows);
+  } catch (err) {
+    console.error(err);
+    res.status(500).send('Internal Server Error');
+  }
+});
+
 
 app.post('/data', async (req, res) => {
   console.log("Помилка при надсиланні даних на сервер: " + req.body);
