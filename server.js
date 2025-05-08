@@ -19,7 +19,7 @@ app.use(cors());
 app.get('/bacalia', async (req, res) => {
   try {
     const result = await pool.query(
-      'SELECT * FROM public.bacalia ORDER BY name',
+      'SELECT * FROM public.bacalia ORDER BY date',
     );
     res.json(result.rows);
   } catch (err) {
@@ -31,7 +31,7 @@ app.get('/bacalia', async (req, res) => {
 app.get('/milk', async (req, res) => {
   try {
     const result = await pool.query(
-      'SELECT * FROM public.milk ORDER BY name',
+      'SELECT * FROM public.milk ORDER BY date',
     );
     
     res.json(result.rows);
@@ -44,7 +44,7 @@ app.get('/milk', async (req, res) => {
 app.get('/meat', async (req, res) => {
   try {
     const result = await pool.query(
-      'SELECT * FROM public.meat ORDER BY name',
+      'SELECT * FROM public.meat ORDER BY date',
     );
     
     res.json(result.rows);
@@ -58,7 +58,7 @@ app.get('/meat', async (req, res) => {
 app.get('/bread', async (req, res) => {
   try {
     const result = await pool.query(
-      'SELECT * FROM public.bread ORDER BY name',
+      'SELECT * FROM public.bread ORDER BY date',
     );
     
     res.json(result.rows);
