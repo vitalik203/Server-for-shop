@@ -21,7 +21,6 @@ app.get('/bacalia', async (req, res) => {
     const result = await pool.query(
       'SELECT * FROM public.bacalia ORDER BY name',
     );
-    
     res.json(result.rows);
   } catch (err) {
     console.error(err);
@@ -70,7 +69,7 @@ app.get('/bread', async (req, res) => {
 });
 
 
-app.post('/data', async (req, res) => {
+app.post('/bacalia', async (req, res) => {
   console.log("Помилка при надсиланні даних на сервер: " + req.body);
   
   try {
@@ -78,6 +77,62 @@ app.post('/data', async (req, res) => {
 
     const result = await pool.query(
       'INSERT INTO public.bacalia (date, name, price, percent, price_with_extra, amount, general_price_without_percent, general_price_with_percent) VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING *',
+      [date, name, price, percent, price_with_extra, amount, general_price_without_percent, general_price_with_percent]
+    );
+
+    res.json(result.rows[0]); // повертаємо новий запис
+  } catch (err) {
+    console.error(err);
+    res.status(500).send('Internal Server Error');
+  }
+});
+
+app.post('/milk', async (req, res) => {
+  console.log("Помилка при надсиланні даних на сервер: " + req.body);
+  
+  try {
+    const { date, name, price, percent, price_with_extra, amount, general_price_without_percent, general_price_with_percent } = req.body;
+
+    const result = await pool.query(
+      'INSERT INTO public.milk (date, name, price, percent, price_with_extra, amount, general_price_without_percent, general_price_with_percent) VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING *',
+      [date, name, price, percent, price_with_extra, amount, general_price_without_percent, general_price_with_percent]
+    );
+
+    res.json(result.rows[0]); // повертаємо новий запис
+  } catch (err) {
+    console.error(err);
+    res.status(500).send('Internal Server Error');
+  }
+});
+
+
+app.post('/meat', async (req, res) => {
+  console.log("Помилка при надсиланні даних на сервер: " + req.body);
+  
+  try {
+    const { date, name, price, percent, price_with_extra, amount, general_price_without_percent, general_price_with_percent } = req.body;
+
+    const result = await pool.query(
+      'INSERT INTO public.meat (date, name, price, percent, price_with_extra, amount, general_price_without_percent, general_price_with_percent) VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING *',
+      [date, name, price, percent, price_with_extra, amount, general_price_without_percent, general_price_with_percent]
+    );
+
+    res.json(result.rows[0]); // повертаємо новий запис
+  } catch (err) {
+    console.error(err);
+    res.status(500).send('Internal Server Error');
+  }
+});
+
+
+app.post('/bread', async (req, res) => {
+  console.log("Помилка при надсиланні даних на сервер: " + req.body);
+  
+  try {
+    const { date, name, price, percent, price_with_extra, amount, general_price_without_percent, general_price_with_percent } = req.body;
+
+    const result = await pool.query(
+      'INSERT INTO public.bread (date, name, price, percent, price_with_extra, amount, general_price_without_percent, general_price_with_percent) VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING *',
       [date, name, price, percent, price_with_extra, amount, general_price_without_percent, general_price_with_percent]
     );
 
