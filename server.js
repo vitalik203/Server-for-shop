@@ -72,7 +72,7 @@ app.post('/bacalia', async (req, res) => {
   console.log("Помилка при надсиланні даних на сервер: " + req.body);
   
   try {
-    const { date, name, price, percent, price_with_extra, amount, general_price_without_percent, general_price_with_percent } = req.body;
+    const { date, name, price, percent, price_with_extra, amount } = req.body;
 
     const result = await pool.query(
       'INSERT INTO public.bacalia (date, name, price, percent, price_with_extra, amount) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *',
@@ -90,7 +90,7 @@ app.post('/milk', async (req, res) => {
   console.log("Помилка при надсиланні даних на сервер: " + req.body);
   
   try {
-    const { date, name, price, percent, price_with_extra, amount, general_price_without_percent, general_price_with_percent } = req.body;
+    const { date, name, price, percent, price_with_extra, amount } = req.body;
 
     const result = await pool.query(
       'INSERT INTO public.milk (date, name, price, percent, price_with_extra, amount) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *',
@@ -109,7 +109,7 @@ app.post('/meat', async (req, res) => {
   console.log("Помилка при надсиланні даних на сервер: " + req.body);
   
   try {
-    const { date, name, price, percent, price_with_extra, amount, general_price_without_percent, general_price_with_percent } = req.body;
+    const { date, name, price, percent, price_with_extra, amount} = req.body;
 
     const result = await pool.query(
       'INSERT INTO public.meat (date, name, price, percent, price_with_extra, amount) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *',
@@ -128,7 +128,7 @@ app.post('/bread', async (req, res) => {
   console.log("Помилка при надсиланні даних на сервер: " + req.body);
   
   try {
-    const { date, name, price, percent, price_with_extra, amount, general_price_without_percent, general_price_with_percent } = req.body;
+    const { date, name, price, percent, price_with_extra, amount} = req.body;
 
     const result = await pool.query(
       'INSERT INTO public.bread (date, name, price, percent, price_with_extra, amount) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *',
