@@ -76,7 +76,7 @@ app.post('/bacalia', async (req, res) => {
 
     const result = await pool.query(
       'INSERT INTO public.bacalia (date, name, price, percent, price_with_extra, amount) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *',
-      [date, name, price, percent, price_with_extra, amount, general_price_without_percent, general_price_with_percent]
+      [date, name, price, percent, price_with_extra, amount]
     );
 
     res.json(result.rows[0]); // повертаємо новий запис
@@ -94,7 +94,7 @@ app.post('/milk', async (req, res) => {
 
     const result = await pool.query(
       'INSERT INTO public.milk (date, name, price, percent, price_with_extra, amount) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *',
-      [date, name, price, percent, price_with_extra, amount, general_price_without_percent, general_price_with_percent]
+      [date, name, price, percent, price_with_extra, amount]
     );
 
     res.json(result.rows[0]); // повертаємо новий запис
@@ -113,7 +113,7 @@ app.post('/meat', async (req, res) => {
 
     const result = await pool.query(
       'INSERT INTO public.meat (date, name, price, percent, price_with_extra, amount) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *',
-      [date, name, price, percent, price_with_extra, amount, general_price_without_percent, general_price_with_percent]
+      [date, name, price, percent, price_with_extra, amount]
     );
 
     res.json(result.rows[0]); // повертаємо новий запис
@@ -132,7 +132,7 @@ app.post('/bread', async (req, res) => {
 
     const result = await pool.query(
       'INSERT INTO public.bread (date, name, price, percent, price_with_extra, amount) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *',
-      [date, name, price, percent, price_with_extra, amount, general_price_without_percent, general_price_with_percent]
+      [date, name, price, percent, price_with_extra, amount]
     );
 
     res.json(result.rows[0]); // повертаємо новий запис
