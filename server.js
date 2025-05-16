@@ -75,7 +75,7 @@ app.post('/bacalia', async (req, res) => {
     const { date, name, price, percent, price_with_extra, amount, general_price_without_percent, general_price_with_percent } = req.body;
 
     const result = await pool.query(
-      'INSERT INTO public.bacalia (date, name, price, percent, price_with_extra, amount, general_price_without_percent, general_price_with_percent) VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING *',
+      'INSERT INTO public.bacalia (date, name, price, percent, price_with_extra, amount) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *',
       [date, name, price, percent, price_with_extra, amount, general_price_without_percent, general_price_with_percent]
     );
 
@@ -93,7 +93,7 @@ app.post('/milk', async (req, res) => {
     const { date, name, price, percent, price_with_extra, amount, general_price_without_percent, general_price_with_percent } = req.body;
 
     const result = await pool.query(
-      'INSERT INTO public.milk (date, name, price, percent, price_with_extra, amount, general_price_without_percent, general_price_with_percent) VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING *',
+      'INSERT INTO public.milk (date, name, price, percent, price_with_extra, amount) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *',
       [date, name, price, percent, price_with_extra, amount, general_price_without_percent, general_price_with_percent]
     );
 
@@ -112,7 +112,7 @@ app.post('/meat', async (req, res) => {
     const { date, name, price, percent, price_with_extra, amount, general_price_without_percent, general_price_with_percent } = req.body;
 
     const result = await pool.query(
-      'INSERT INTO public.meat (date, name, price, percent, price_with_extra, amount, general_price_without_percent, general_price_with_percent) VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING *',
+      'INSERT INTO public.meat (date, name, price, percent, price_with_extra, amount) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *',
       [date, name, price, percent, price_with_extra, amount, general_price_without_percent, general_price_with_percent]
     );
 
@@ -131,7 +131,7 @@ app.post('/bread', async (req, res) => {
     const { date, name, price, percent, price_with_extra, amount, general_price_without_percent, general_price_with_percent } = req.body;
 
     const result = await pool.query(
-      'INSERT INTO public.bread (date, name, price, percent, price_with_extra, amount, general_price_without_percent, general_price_with_percent) VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING *',
+      'INSERT INTO public.bread (date, name, price, percent, price_with_extra, amount) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *',
       [date, name, price, percent, price_with_extra, amount, general_price_without_percent, general_price_with_percent]
     );
 
